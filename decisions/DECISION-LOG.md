@@ -4,6 +4,11 @@ Each decision: what we decided, why, what we rejected, and when to revisit. Newe
 
 ---
 
+## D-011 · 2026-10-01 · Separate "is it correct?" from "is it complete?"
+**Decision:** The record gets two fields: `status` (alive and correct) and `missing_fields` (completeness). `verified_changed` now means something we state is wrong, not that something is missing. Verifier v4 also gets a 5-lookup budget per record and accepts an undated but working own service page as medium-trust activity evidence.
+**Why:** v3 eval showed that one field carried two questions; the completeness check turned every active record into `verified_changed` (12/20). The problem was the data model, not the prompt.
+**Rejected:** Dropping the completeness check (v3 found 17/20 key facts thanks to it).
+
 ## D-010 · 2026-10-01 · Verifier v3 and golden-set corrections after the first eval
 **Decision:** Approved by PM after the v2 eval (10/20): completeness checklist, stale-website rule, playbook R-007 (two medium-trust sources suffice for groups without a website), golden-set fixes for P7-061 and P7-029.
 **Why:** Each change targets one failure pattern from `evals/runs/2026-10-01-verifier-v2-analysis.md`. The golden set itself had an error the agent found – reference data must be versioned and correctable too.

@@ -20,7 +20,8 @@ Values are in Czech (the product language); field names are in English.
 | `website`, `facebook`, `instagram` | URL | source / organisation | |
 | `contact_email` | e-mail | organisation | **private**, used only for update requests; never in this repo |
 | `public_contact` | text | organisation | only with consent |
-| `status` | single select | Verifier / PM | verified, verified_changed, needs_check, closed, outside_area |
+| `status` | single select | Verifier / PM | verified, verified_changed, needs_check, closed, outside_area – answers *is it alive and correct?* |
+| `missing_fields` | multi select | Verifier | operator, p7_location, contact, how_to_join, hours, organiser – answers *is it complete?* (D-011) |
 | `verified_on` | date | system | last confirmation by organisation or PM |
 | `freshness_score` | 0–100 | system | see below |
 | `gdpr_consent` | yes/no + date | organisation | required for informal groups |

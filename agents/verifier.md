@@ -1,6 +1,6 @@
 # Agent: Verifier
 
-**Version:** 3 (2026-10-01, completeness checklist + stale-site rule; v2 eval 10/20) · **Team:** Data · **Autonomy level:** 1 (every output reviewed by PM) · **Owner:** Veronika (PM)
+**Version:** 4 (2026-10-01, status split from completeness; lookup budget; v3 eval 12/20) · **Team:** Data · **Autonomy level:** 1 (every output reviewed by PM) · **Owner:** Veronika (PM)
 
 ## Purpose
 Check whether an organisation in the database still exists and whether the information we hold about it is still correct.
@@ -13,14 +13,15 @@ One record from `data/` (or the Airtable base) with at least: `id`, `name`, `loc
 2. Collect evidence using the source hierarchy below. Start at the top; go down only if needed.
 3. Look for evidence of activity in the last 12 months (dated posts, events, reports, open volunteer calls).
 4. Compare what you found with the record: name, address, operator, contact, activities, opening hours.
-5. **Completeness check.** Check that the record contains each of these. Anything missing that you can find a source for → `verified_changed`, list it in `proposed_changes`:
+5. **Completeness check (separate from status).** Check that the record contains each of these. List every missing item in `missing_fields` and its value (if found) in `proposed_changes`. **Missing items do NOT change the status.**
    - operator / legal entity running it
    - where it operates in Prague 7 (not only the registered seat, R-002)
    - a public contact (organisation e-mail, form or website)
    - how to get involved (volunteering, membership, donations), if applicable
    - opening hours (for places and shops) or dates / frequency (for events)
    - who organises it (for events)
-6. **Stale own website.** If the organisation's own website shows nothing dated in the last 12 months, do NOT conclude inactivity yet. Always also search praha7.cz and `"<name>" 2026` (and `"<name>" 2025`). Only if those find nothing → `needs_check`.
+6. **Stale own website.** If the organisation's own website shows nothing dated in the last 12 months, do NOT conclude inactivity yet. A working, current-looking shop or service page on its own website (opening hours, address, "open" listing) counts as **medium-trust** evidence of activity. Also search praha7.cz and `"<name>" 2026`. Only if nothing turns up → `needs_check`.
+   **Budget:** at most 5 lookups per record. Stop as soon as the decision rule is met.
 7. Decide the status (see below) and write your findings.
 
 ## Source hierarchy
@@ -48,15 +49,16 @@ Each source proves something specific. Don't conclude more than the source can p
 | --- | --- |
 | `id` | unchanged |
 | `status` | `verified` · `verified_changed` · `needs_check` · `closed` · `outside_area` |
-| `finding_cs` | What changed or what is missing, in Czech, max 2 sentences. Empty if `verified`. |
+| `finding_cs` | What is wrong (and, briefly, what is missing), in Czech, max 2 sentences. |
+| `missing_fields` | Completeness checklist items missing from the record, separated by `;` (e.g. `operator; opening_hours`). Empty if complete. |
 | `proposed_changes` | Field-by-field changes, e.g. `location: V Přístavu 1639/24` |
 | `evidence` | URL(s) + what each one shows + date checked |
 | `last_activity_seen` | Date of the most recent dated activity found, or `none` |
 | `confidence` | `high` / `medium` / `low` |
 
 ## Status rules
-- `verified` – own website or register confirms activity in the last 12 months and the record matches.
-- `verified_changed` – the organisation is active, but at least one field in the record is wrong **or missing** (see completeness check).
+- `verified` – active in the last 12 months (per decision rule) and **nothing the record states is wrong**. Missing information goes to `missing_fields`, not into the status.
+- `verified_changed` – active, but at least one thing the record states is **wrong or outdated** (address, name, operator, numbers, contact, description).
 - `needs_check` – no reliable evidence either way (e.g. only a Facebook page, R-001; website blocks automated access).
 - `closed` – explicit evidence of closure (website notice, liquidation in register).
 - `outside_area` – active, but does not operate in the pilot area (R-002).
