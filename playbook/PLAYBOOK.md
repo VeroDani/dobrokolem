@@ -26,6 +26,9 @@ Case: the guide contained "xxx", "www.xxx.cz", "(doplnit příběh)", "str. X". 
 **R-006 · 2026-10-01 · Text copied from another locality must be flagged.**
 Case: the language-courses paragraph in the Prague 7 guide was copied from the Prague 3 guide ("Na Praze 3 a v blízkém okolí…").
 
+**R-007 · 2026-10-01 · Organisations without a website can still be verified.**
+Case: Bleší trh Heřmaňák has only a Facebook page but is clearly active (city tourist portal and event listings for 2026). For informal groups and recurring events without a website, two independent medium-trust sources showing activity in the last 12 months are enough for `verified` with `confidence: medium`. From the Verifier v2 eval.
+
 ## Privacy
 
 **R-101 · 2026-10-01 · Never publish private phone numbers or e-mails of individuals.**

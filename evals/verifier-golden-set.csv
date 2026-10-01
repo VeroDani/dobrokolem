@@ -6,7 +6,7 @@ P7-009,Vodárenská věž Letná,verified_changed,Operator is DDM Praha 7.
 P7-002,Komunitní centrum Přístav 7,verified_changed,Address V Přístavu 1639/24; guide has 'xxx' placeholders.
 P7-058,Šatník Praha (Šatník Nory Fridrichové),verified_changed,"Located in P7: Hala 13, Pražská tržnice."
 P7-059,STO•RE – cirkulární spot,verified_changed,Opening hours missing in guide.
-P7-061,Oděvní banka (Klub svobodných matek),verified,"Active, Povltavská 5/74."
+P7-061,Oděvní banka (Klub svobodných matek),verified_changed,"Now an independent NGO, no longer a project of Klub svobodných matek (own website, Jun 2026). Corrected after v2 eval."
 P7-065,Dobročinný obchod Sue Ryder – Heřmanka,verified,"Active, Heřmanova 596/59."
 P7-066,Dobročinný obchod Cesta domů,verified,"Active, Bubenská 421/3."
 P7-067,Restart Shop,verified_changed,Social enterprise context missing (Česká asociace streetwork).
@@ -17,5 +17,5 @@ P7-037,"Montessori Korunka, z. s.",verified,"Active, team 2026/2027."
 P7-051,Bleší trh Heřmaňák,verified,"Active, last Saturday monthly through Oct 2026."
 P7-052,Farmářské tržiště Heřmaňák,verified_changed,"20–25 stalls, not 30."
 P7-071,Nábytková banka Praha,outside_area,Based in Praha 4.
-P7-029,Koordinátorka sousedských spolků a seniorské politiky (MČ Praha 7),verified_changed,Current name Michaela Panko; guide inconsistent.
+P7-029,Koordinátorka sousedských spolků a seniorské politiky (MČ Praha 7),verified_changed|needs_check,Coordinator name inconsistent (Šormová vs Panko); flag the conflict (R-004). needs_check + escalation accepted.
 P7-008,Komunitní zahrádka Stromovka (u Malé říčky),needs_check,No online evidence of operator or activity.
