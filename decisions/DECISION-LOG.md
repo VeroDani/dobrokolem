@@ -4,6 +4,12 @@ Each decision: what we decided, why, what we rejected, and when to revisit. Newe
 
 ---
 
+## D-009 · 2026-10-01 · Source hierarchy for the Verifier; dobrovolnik.cz as partner, not competitor
+**Decision:** The Verifier weighs sources by what they actually prove (existence vs. activity). Added dobrovolnik.cz, the municipal grants list and fundraising platforms as activity signals; GlobalGiving Atlas and Mapa neziskovek as existence-only sources (useful for the Scout to find candidates).
+**Why:** A register entry proves an organisation exists, not that it is active – the most likely wrong conclusion for an agent.
+**Competitive note:** dobrovolnik.cz (HESTIA + dobrokruh) already serves part of use case 1 nationally. Our edge is local depth, informal groups and organisation-to-organisation connections. Treat them as a potential partner (link to their calls, offer our verified local data).
+**Check before reuse:** licence of GlobalGiving Atlas data before storing it in this public repository.
+
 ## D-008 · 2026-10-01 · Three north stars: product, agent system, builder
 **Decision:**
 - Product: **live records** (verified, updated or added in the last 90 days), split by who confirmed them. Guardrail: contact clicks on the website.

@@ -1,6 +1,6 @@
 # Agent: Verifier
 
-**Team:** Data · **Autonomy level:** 1 (every output reviewed by PM) · **Owner:** Veronika (PM)
+**Version:** 2 (2026-10-01, source hierarchy added) · **Team:** Data · **Autonomy level:** 1 (every output reviewed by PM) · **Owner:** Veronika (PM)
 
 ## Purpose
 Check whether an organisation in the database still exists and whether the information we hold about it is still correct.
@@ -10,10 +10,30 @@ One record from `data/` (or the Airtable base) with at least: `id`, `name`, `loc
 
 ## What to do
 1. Read `playbook/PLAYBOOK.md`.
-2. Open the organisation's own website first. Then, if needed: the official register (rejstřík / ARES), the municipality's website, reputable news. Use directories only as a last resort (R-003).
-3. Look for evidence of activity in the last 12 months (dated posts, events, reports).
+2. Collect evidence using the source hierarchy below. Start at the top; go down only if needed.
+3. Look for evidence of activity in the last 12 months (dated posts, events, reports, open volunteer calls).
 4. Compare what you found with the record: name, address, operator, contact, activities, opening hours.
 5. Decide the status (see below) and write your findings.
+
+## Source hierarchy
+Each source proves something specific. Don't conclude more than the source can prove.
+
+| Source | What it proves | Trust |
+| --- | --- | --- |
+| Organisation's own website with dated posts | Activity, current address and contact | High |
+| Open volunteer call on dobrovolnik.cz | Activity right now | High |
+| Prague 7 municipality grants list (dotace MČ Praha 7) | Operated in Prague 7 in that year | High |
+| praha7.cz articles and event calendar | Activity in Prague 7 on that date | High |
+| Official register (spolkový rejstřík / ARES) | Existence, legal seat, liquidation – **not activity** | High for existence only |
+| Active fundraiser on darujme.cz / hithit.com | Activity | Medium |
+| News, Hobulet (municipal monthly) | Activity, events | Medium |
+| Event listings (Kudy z nudy, Praguest) | That an event took place | Medium, events only |
+| Mapotic Sousedská mapa | Someone once entered the record | Low |
+| GlobalGiving Atlas, Mapa neziskovek | Existence (re-packaged register data) – **not activity** | Low for activity |
+| Firmy.cz, GoOut, map directories | Address, often outdated (R-003) | Low |
+| Facebook / Instagram | Not used by the agent (R-102); manual check only | – |
+
+**Decision rule:** `verified` requires at least one **high-trust** source showing activity in the last 12 months. Low-trust sources alone are never enough. If a website blocks automated access and only search snippets are available, set `confidence: low`.
 
 ## Output (one row per record)
 | Field | Content |
